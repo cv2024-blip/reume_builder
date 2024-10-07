@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <nav class="navbar bg-dark">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="brand-and-toggler">
+                    <a href="/" class="navbar-brand">
+                        <img src="/images/resume-bright.svg" alt="" class="navbar-brand-icon">
+                        <span class="navbar-brand-text">build <span>resume.</span>
+                    </a>
+                    <button type="button" class="navbar-toggler-btn">
+                        <div class="bars">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    <ul class="menuList">
+                        <% if (session?.name) { %>
+                            <a href="/profile" id="profile">
+                                <li>
+                                    <%= session?.name %>
+                                </li>
+                            </a>
+                            <span><a href="/logout">
+                                    <li>Log Out</li>
+                                </a></span>
+
+                            <% } else { %>
+                                <button><a href="/login">
+                                        <li>Login</li>
+                                    </a></button>
+                                <% } %>
+                                    <a href="#cv_type">
+                                        <li>Services</li>
+                                    </a>
+                                    <a href="#about">
+                                        <li>About</li>
+                                    </a>
+                                    <a href="#footer">
+                                        <li>Contact</li>
+                                    </a>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
