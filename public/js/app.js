@@ -579,42 +579,7 @@ summary_btn.addEventListener("click", async (event) => {
         input_text += `${designationElem.value}`;
       }
       
-      // Degree
-      if (user_data.educations && user_data.educations[0]?.edu_degree) {
-        input_text += `, who got a ${user_data.educations[0].edu_degree}`;
-      }
-      
-      // School
-      if (user_data.educations && user_data.educations[0]?.edu_school) {
-        input_text += ` from ${user_data.educations[0].edu_school}`;
-      }
-      
-      // Skills
-      if (user_data.skills && user_data.skills[0]?.skill) {
-        input_text += `, skilled at ${user_data.skills[0].skill}`;
-      }
-      
-      // Achievements
-      if (user_data.achievements && user_data.achievements[0]?.achieve_title) {
-        input_text += `, also have achieved ${user_data.achievements[0].achieve_title}`;
-      }
-      
-      // Experience
-      if (user_data.experiences && user_data.experiences[0]?.exp_title) {
-        input_text += `, and also ${user_data.experiences[0].exp_title}`;
-      }
-      
-      // Projects
-      if (user_data.projects && user_data.projects[0]?.proj_title) {
-        input_text += `, have done these projects: ${user_data.projects[0].proj_title}.`;
-      }
-      
-      // Projects Description (Assuming you want to use this)
-      if (user_data.projects && user_data.projects[0]?.proj_description) {
-        input_text += ` Description: ${user_data.projects[0].proj_description}.`;
-      }
-      
-  
+    
       console.log(input_text);
       console.log("**************************");
 
