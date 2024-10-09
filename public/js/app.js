@@ -444,125 +444,7 @@ function getListData(list, listTitle, listItemsName) {
 }
 
 let summary_btn = document.getElementById("summary-btn");
-let assistantMessage = " make a resume summary for a " // Assistant Message
 let input_text = "";
-
-// connection with falcon API
-// summary_btn.addEventListener("click", async (event) => {
-//   event.preventDefault();
-//   user_data = getUserInputs();
-//   let input_text = "";
-//   if (true) {
-//     //input validation and user message making
-//     if (designationElem.value !== "") {
-//       input_text += `Iam a ${designationElem.value}`;
-//     } //job title
-
-//     let degree = getListData(user_data, "educations", "edu_degree"); // degree
-//     if (degree !== " ") {
-//       input_text += `, and got a${degree}`;
-//     }
-
-//     let school = getListData(user_data, "educations", "edu_school"); // school
-//     if (school !== " ") {
-//       input_text += ` from${school}`;
-//     }
-
-//     let skills = getListData(user_data, "skills", "skill"); // skills
-//     if (skills !== " ") {
-//       input_text += `, skilled at${skills}`;
-//     }
-
-//     let achievments = getListData(user_data, "achievements", "achieve_title"); // achievments
-//     if (achievments !== " ") {
-//       input_text += `, also I have achieved${achievments}`;
-//     }
-
-//     let experience = getListData(user_data, "experiences", "exp_title"); // experience
-//     if (experience !== " ") {
-//       input_text += `, and also I${experience}`;
-//     }
-
-//     let projects = getListData(user_data, "projects", "proj_title"); // projects
-//     if (projects !== " ") {
-//       input_text += `, I have done these projects:${projects}.`;
-//     }
-
-//     let projectsDescription = getListData(
-//       user_data,
-//       "projects",
-//       "proj_description"
-//     ); // projects
-//     if (projects !== " ") {
-//       input_text += `, I have done these projects:${projects}.`;
-//     }
-
-//     console.log(input_text);
-//     console.log("**************************");
-
-//     //tiiuae/falcon-7b-instruct
-//     //meta-llama/Meta-Llama-3-8B-Instruct
-
-//     let apiToken = "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";
-//     const response1 = await fetch(
-//       "https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct",
-//       {
-//         method: "POST",
-//         headers: {
-//           Authorization: `Bearer ${apiToken}`,
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//           inputs: input_text + "make a professional resume summary for this.",
-//         }),
-//       }
-//     );
-
-//     if (!response1.ok) {
-//       const errorText = await response1.text();
-//       console.log(`Error: ${errorText}`);
-//       return;
-//     }
-
-//     const result = await response1.json();
-//     console.log(result);
-//     let splitted_response1 = result[0]["generated_text"];
-//     console.log(splitted_response1);
-//     output = splitted_response1[0];
-//     summaryElem.value = JSON.stringify(output, null, 2);
-
-//     const response2 = await fetch(
-//       "https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct",
-//       {
-//         method: "POST",
-//         headers: {
-//           Authorization: `Bearer ${apiToken}`,
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//           inputs: "make a description for each of this projects:" + projects,
-//         }),
-//       }
-//     );
-
-//     if (!response2.ok) {
-//       const errorText = await response2.text();
-//       console.log(`Error: ${errorText}`);
-//       return;
-//     }
-
-//     const result2 = await response2.json();
-//     console.log(result2);
-//     let splitted_response2 = result2[0]["generated_text"].split("summary");
-//     console.log(splitted_response2);
-//     output2 = splitted_response2[0];
-//     document.querySelector(".proj_description").value = JSON.stringify(
-//       output,
-//       null,
-//       2
-//     );
-//   }
-// });
 
 if(summary_btn){
 summary_btn.addEventListener("click", async (event) => {
@@ -579,7 +461,42 @@ summary_btn.addEventListener("click", async (event) => {
         input_text += `${designationElem.value}`;
       }
       
-    
+      // Degree
+      if (user_data.educations && user_data.educations[0]?.edu_degree) {
+        input_text += `, who got a ${user_data.educations[0].edu_degree}`;
+      }
+      
+      // School
+      if (user_data.educations && user_data.educations[0]?.edu_school) {
+        input_text += ` from ${user_data.educations[0].edu_school}`;
+      }
+      
+      // Skills
+      if (user_data.skills && user_data.skills[0]?.skill) {
+        input_text += `, skilled at ${user_data.skills[0].skill}.`;
+      }
+      
+      // // Achievements
+      // if (user_data.achievements && user_data.achievements[0]?.achieve_title) {
+      //   input_text += `, also have achieved ${user_data.achievements[0].achieve_title}`;
+      // }
+      
+      // // Experience
+      // if (user_data.experiences && user_data.experiences[0]?.exp_title) {
+      //   input_text += `, and also ${user_data.experiences[0].exp_title}`;
+      // }
+      
+      // // Projects
+      // if (user_data.projects && user_data.projects[0]?.proj_title) {
+      //   input_text += `, have done these projects: ${user_data.projects[0].proj_title}.`;
+      // }
+      
+      // // Projects Description (Assuming you want to use this)
+      // if (user_data.projects && user_data.projects[0]?.proj_description) {
+      //   input_text += ` Description: ${user_data.projects[0].proj_description}.`;
+      // }
+      
+  
       console.log(input_text);
       console.log("**************************");
 
@@ -593,7 +510,7 @@ summary_btn.addEventListener("click", async (event) => {
       input_text // user message
       let outputElem = summaryElem // output element
 
-      if (!input_text || !assistantMessage) {
+      if (!input_text) {
         summaryElem.value = "Please add your details"
         return;
       }
@@ -601,6 +518,8 @@ summary_btn.addEventListener("click", async (event) => {
     
 
     try{
+      let assistantMessage = " make a professional resume summary" // Assistant Message
+      summaryElem.value = "...";
       const response = await fetch('api/inference', {
         method: 'POST',
         headers: {
@@ -619,12 +538,13 @@ summary_btn.addEventListener("click", async (event) => {
       console.error('There was a problem with the fetch operation', error)
     }
     
-    input_text = projTitle = user_data.projects[0].proj_title
+
     console.log(input_text)
     let projElem = user_data["projectDes"][0]
-    assistantMessage = "make a description for this projects"
 
     try{
+      input_text = projTitle = user_data.projects[0].proj_title
+      let assistantMessage =  "make a description for this project" // Assistant Message
       const response = await fetch('api/inference', {
         method: 'POST',
         headers: {
