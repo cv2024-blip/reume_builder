@@ -63,3 +63,4 @@ export const fetchInference = async function (inputElem ,outputElem, AssistantMe
 //     .catch(error => {
 //         console.error('Error while fetching inference:', error);
 //     });
+
