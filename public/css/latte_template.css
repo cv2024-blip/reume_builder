@@ -33,7 +33,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: var(--font-poppins);
-  background-color: var(--clr-dark);
+  background-color: var(--clr-bright);
 }
 
 button {
