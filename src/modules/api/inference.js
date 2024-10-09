@@ -1,7 +1,7 @@
 import { HfInference } from '@huggingface/inference';
 import dotenv from 'dotenv';
 dotenv.config()
-const inference = new HfInference(process.env.HUGGING_FACE_API_KEY);
+const inference = new HfInference("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");
 let output = ""
 
 let result = ""
