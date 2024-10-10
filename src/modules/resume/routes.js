@@ -6,6 +6,7 @@ import { extenstions } from "../../utils/fileExtenstions.js";
 const router = Router();
 
 router.get("/resume", auth, resume);
+console.log("Resume Data:", resume);
 router.post(
   "/handleresume",
   auth,
