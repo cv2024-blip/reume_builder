@@ -311,53 +311,78 @@
         </div>
 
 
+<div class="cv-form-blk skills">
+  <div class="cv-form-row-title">
+    <h3>Skills</h3>
+  </div>
 
-        <div class="cv-form-blk skills">
-          <div class="cv-form-row-title">
-            <h3>skills</h3>
-          </div>
-    
-          <div class="row-separator repeater">
-            <div class="repeater" data-repeater-list="group-e">
-              <% if (resume.skills.length>0) { %> <% for( let index = 0; index <
-              resume.skills.length; index++ ) { %>
-              <div data-repeater-item>
-                <div class="cv-form-row cv-form-row-skills">
-                  <div class="form-elem">
-                    <label for="" class="form-label">Skill</label>
-                    <input
-                      name="skill"
-                      type="text"
-                      class="form-control skill"
-                      id=""
-                      onkeyup="generateCV()"
-                      value="<%= resume.skills[index].skill !== '' ? resume.skills[index].skill  : '' %>"
-                    />
-                    <span class="form-text"></span>
-                  </div>
-    
-                  <button
-                    data-repeater-delete
-                    type="button"
-                    class="repeater-remove-btn"
-                  >
-                    -
-                  </button>
-                </div>
+  <div class="row-separator repeater">
+    <div class="repeater" data-repeater-list="group-e">
+      <% if (resume.skills && resume.skills.length > 0) { %>
+        <% for (let index = 0; index < resume.skills.length; index++) { %>
+          <div data-repeater-item>
+            <div class="cv-form-row cv-form-row-skills">
+              <div class="form-elem">
+                <label for="" class="form-label">Skill</label>
+                <input
+                  name="skill"
+                  type="text"
+                  class="form-control skill"
+                  id=""
+                  onkeyup="generateCV()"
+                  value="<%= resume.skills[index].skill !== '' ? resume.skills[index].skill : '' %>"
+                />
+                <span class="form-text"></span>
               </div>
-              <% } %> <% } %>
+
+              <button
+                data-repeater-delete
+                type="button"
+                class="repeater-remove-btn"
+              >
+                -
+              </button>
             </div>
+          </div>
+        <% } %>
+      <% } else { %>
+        <!-- Default input field when there are no skills -->
+        <div data-repeater-item>
+          <div class="cv-form-row cv-form-row-skills">
+            <div class="form-elem">
+              <label for="" class="form-label">Skill</label>
+              <input
+                name="skill"
+                type="text"
+                class="form-control skill"
+                id=""
+                onkeyup="generateCV()"
+                placeholder="Enter skill"
+              />
+              <span class="form-text"></span>
+            </div>
+
             <button
+              data-repeater-delete
               type="button"
-              data-repeater-create
-              value="Add"
-              class="repeater-add-btn"
+              class="repeater-remove-btn"
             >
-              +
+              -
             </button>
           </div>
         </div>
-    
+      <% } %>
+    </div>
+    <button
+      type="button"
+      data-repeater-create
+      value="Add"
+      class="repeater-add-btn"
+    >
+      +
+    </button>
+  </div>
+</div>
 
 
       </form>
