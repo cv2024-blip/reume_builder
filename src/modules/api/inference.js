@@ -32,7 +32,7 @@ let input = ""
 export const fetchInference = async function (inputElem ,outputElem, AssistantMessage) {
     try {
         outputElem = ''; // Clear previous 
-        input = AssistantMessage + "\n" + inputElem 
+        input = inputElem + "\n" + AssistantMessage  
         console.log("the user message is: " + input)
         for await (const chunk of inference.chatCompletionStream({
             model: "tiiuae/falcon-7b-instruct",
