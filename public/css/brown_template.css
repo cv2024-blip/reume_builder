@@ -710,6 +710,12 @@ nav .container {
   .projects-items.preview-blk-list .preview-item span {
     display: block;
   }
+  .projects-items.preview-blk-list .preview-item span:nth-child(1) {
+    font-weight: 600;
+  }
+  .projects-items.preview-blk-list .preview-item span:nth-child(2) {
+    font-weight: 600;
+  }
   .print-btn-sc .container{
     display: flex;
     justify-content: center;
