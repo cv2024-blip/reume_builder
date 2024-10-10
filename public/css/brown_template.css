@@ -934,7 +934,9 @@ nav .container {
     .print_area * {
       visibility: visible;
     }
-  
+    .preview-cnt {
+      margin:0;
+    }
     .print_area {
       width: 100%;
       margin: 0;
