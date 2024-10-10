@@ -636,6 +636,11 @@ nav .container {
     display: inline;
     list-style-type: disc;
   }
+  .preview-item:nth-child(3) .preview-item-val{
+    font-size: 13.5px;
+    font-weight: 300;
+    text-align: justify;
+  }
   .preview-item-name {
     font-size: 2.4rem;
     font-weight: 600;
@@ -652,6 +657,11 @@ nav .container {
     left: 50%;
     transform: translateX(-50%);
   }
+  .skills-items .preview-item{
+    margin-right: 0.5rem ;
+    font-weight: 600;
+  }
+
   .preview-blk {
     padding: 1rem 0;
     margin-bottom: 1rem;
@@ -666,9 +676,11 @@ nav .container {
     margin-bottom: 1rem;
   }
   .preview-blk-list .preview-item {
-    font-size: 1.5rem;
+    font-size: 13.5px;
+    text-align: justify;
+    font-weight: 100;
     margin-bottom: 0.2rem;
-    opacity: 0.95;
+    opacity: 0.8;
   }
   .preview-cnt-r .preview-blk-title {
     color: var(--clr-dark);
@@ -737,6 +749,14 @@ nav .container {
   .projects-items.preview-blk-list .preview-item span {
     display: block;
   }
+  .projects-items.preview-blk-list .preview-item span:nth-child(1) {
+    font-weight: 600;
+  }
+  .projects-items.preview-blk-list .preview-item span:nth-child(2) {
+    font-weight: 600;
+  }
+
+
   .print-btn-sc .container{
     display: flex;
     justify-content: center;
