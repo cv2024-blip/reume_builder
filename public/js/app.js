@@ -460,17 +460,24 @@ summary_btn.addEventListener("click", async (event) => {
       if (designationElem.value) {
         input_text += `${designationElem.value}`;
       }
-      
-      // Degree
-      if (user_data.educations && user_data.educations[0]?.edu_degree) {
-        input_text += `, who got a ${user_data.educations[0].edu_degree}`;
-      }
-      
-      // School
-      if (user_data.educations && user_data.educations[0]?.edu_school) {
-        input_text += ` from ${user_data.educations[0].edu_school}`;
-      }
-      
+      // Education
+        // Degree
+        if (user_data.educations && user_data.educations[0]?.edu_degree) {
+          input_text += `, who got a ${user_data.educations[0].edu_degree}`;
+        }
+        
+        // School
+        if (user_data.educations && user_data.educations[0]?.edu_school) {
+          input_text += ` from ${user_data.educations[0].edu_school}`;
+        }
+          // start date
+          if (user_data.educations && user_data.educations[0]?.edu_start_date) {
+            input_text += ` starting from ${user_data.educations[0].edu_start_date}`;
+          }
+          // end date
+          if (user_data.educations && user_data.educations[0]?.edu_graduation_date) {
+            input_text += ` to ${user_data.educations[0].edu_graduation_date}`;
+          }
       // Skills
       if (user_data.skills && user_data.skills[0]?.skill) {
         input_text += `, skilled at ${user_data.skills[0].skill}.`;
@@ -480,18 +487,26 @@ summary_btn.addEventListener("click", async (event) => {
       if (user_data.achievements && user_data.achievements[0]?.achieve_title) {
         input_text += `, also have achieved ${user_data.achievements[0].achieve_title}`;
       }
-      
+
       // Experience
       if (user_data.experiences && user_data.experiences[0]?.exp_title) {
         input_text += `, and also ${user_data.experiences[0].exp_title}`;
       }
-      
+        // start date
+        if (user_data.experiences && user_data.experiences[0]?.exp_start_date) {
+          input_text += `starting from ${user_data.experiences[0].exp_start_date}`;
+        }
+        // end date
+        if (user_data.experiences && user_data.experiences[0]?.exp_end_date) {
+          input_text += ` to ${user_data.experiences[0].exp_end_date}`;
+        }
+
       // Projects
       if (user_data.projects && user_data.projects[0]?.proj_title) {
-        input_text += `, have done these projects: ${user_data.projects[0].proj_title}.`;
+        input_text += `, have done these projects: ${user_data.projects[0].proj_title}`;
       }
       
-      // // Projects Description (Assuming you want to use this)
+      // Projects Description (Assuming you want to use this)
       // if (user_data.projects && user_data.projects[0]?.proj_description) {
       //   input_text += ` Description: ${user_data.projects[0].proj_description}.`;
       // }
@@ -518,7 +533,7 @@ summary_btn.addEventListener("click", async (event) => {
     
 
     try{
-      let assistantMessage = "Summarise." // Assistant Message
+      let assistantMessage = "Make a resume summary as first person in a single short paragraph." // Assistant Message
       summaryElem.value = "...";
       const response = await fetch('api/inference', {
         method: 'POST',
@@ -531,8 +546,9 @@ summary_btn.addEventListener("click", async (event) => {
         throw new Error('Network response was not ok')
       }
       const data = await response.json();
-      console.log(data.result)
+      console.log(data)
       summaryElem.value = data.result;
+      generateCV()
     }catch (error) {
       summaryElem.value = 'Error' + error.message;
       console.error('There was a problem with the fetch operation', error)
@@ -540,28 +556,34 @@ summary_btn.addEventListener("click", async (event) => {
     
 
     console.log(input_text)
-    let projElem = user_data["projectDes"][0]
+    let projElem = user_data["projectTitle"]
 
-    try{
-      input_text = projTitle = user_data.projects[0].proj_title
-      let assistantMessage =  "Descripe." // Assistant Message
-      const response = await fetch('api/inference', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ input_text, assistantMessage})
-      });
-      if (!response.ok){
-        throw new Error('Network response was not ok')
+    for (let i = 0; i < projElem.length; i++) {
+      try{
+        input_text = projTitle = user_data.projects[i].proj_title + "."
+        let projDes = user_data["projectDes"][i]
+        projDes.value = "..."
+        let assistantMessage =  "make a describtion for the project in a single short paragraph." // Assistant Message
+        const response = await fetch('api/inference', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ input_text, assistantMessage})
+        });
+        if (!response.ok){
+          throw new Error('Network response was not ok')
+        }
+        const data = await response.json();
+        console.log(data.result)
+        projDes.value = data.result;
+        generateCV()
+      }catch (error) {
+        projElem.value = 'Error' + error.message;
+        console.error('There was a problem with the fetch operation', error)
       }
-      const data = await response.json();
-      console.log(data.result)
-      projElem.value = data.result;
-    }catch (error) {
-      projElem.value = 'Error' + error.message;
-      console.error('There was a problem with the fetch operation', error)
     }
+
   }
   });
 }
@@ -594,7 +616,8 @@ function saveResumeData() {
     body: formData,
   })
     .then((res) => console.log(res))
-    .catch((err) => console.log(error));
+    .then(window.alert("Your data has been saved successfully"))
+    .catch((err) => console.log(err));
 }
 window.saveResumeData = saveResumeData
 
@@ -619,7 +642,8 @@ function saveResumeDataAts() {
     body: formData,
   })
     .then((res) => console.log(res))
-    .catch((err) => console.log(error));
+    .then(window.alert("Your data has been saved successfully"))
+    .catch((err) => console.log(err));
 }
 
 window.saveResumeDataAts = saveResumeDataAts
