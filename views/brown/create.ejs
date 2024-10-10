@@ -28,6 +28,20 @@
                   placeholder="e.g. Doe" />
                 <span class="form-text"></span>
               </div>
+            </div>
+
+            <div class="cols-3">
+              <div class="form-elem">
+                <label for="" class="form-label">Your Image</label>
+                <input
+                  name="image"
+                  type="file"
+                  class="form-control image"
+                  id=""
+                  accept="image/*"
+                  onchange="previewImage()"
+                />
+              </div>
 
               <div class="form-elem">
                 <label for="" class="form-label">Phone No:</label>
@@ -35,30 +49,32 @@
                   placeholder="e.g. 456-768-798, 567.654.002" />
                 <span class="form-text"></span>
               </div>
-            </div>
-
-            <div class="cols-3">
+              
               <div class="form-elem">
                 <label for="" class="form-label">Designation</label>
                 <input name="designation" type="text" class="form-control designation" id="" onkeyup="generateCV()"
                   placeholder="e.g. Sr.Data-scientist" />
                 <span class="form-text"></span>
               </div>
+
+
+            </div>
+
+            <div class="cols-3">
               <div class="form-elem">
                 <label for="" class="form-label">Address</label>
                 <input name="address" type="text" class="form-control address" id="" onkeyup="generateCV()"
                   placeholder="e.g. Lake Street-23" />
                 <span class="form-text"></span>
               </div>
+
               <div class="form-elem">
                 <label for="" class="form-label">Email</label>
                 <input name="email" type="text" class="form-control email" id="" onkeyup="generateCV()"
                   placeholder="e.g. johndoe@gmail.com" />
                 <span class="form-text"></span>
               </div>
-            </div>
 
-            <div class="cols-3">
               <div class="form-elem summary">
                 <label for="" class="form-label">Summary</label>
                 <textarea type="textarea" name="summary" class="form-control summary_input" onkeyup="generateCV()"
