@@ -35,7 +35,7 @@ export const fetchInference = async function (inputElem ,outputElem, AssistantMe
         input = AssistantMessage + " " + inputElem 
         console.log("the user message is: " + input)
         for await (const chunk of inference.chatCompletionStream({
-            model: "tiiuae/falcon-7b-instruct",
+            model: "mistralai/Mistral-7B-Instruct-v0.3",
             messages: [{ role: "user", content: input}],
             max_tokens: 95,
         })) {
