@@ -434,77 +434,128 @@
           </div>
         </div>
         
+<div class="cv-form-blk projects">
+  <div class="cv-form-row-title">
+    <h3>Projects</h3>
+  </div>
 
-        <div class="cv-form-blk projects">
-          <div class="cv-form-row-title">
-            <h3>projects</h3>
-          </div>
-
-          <div class="row-separator repeater">
-            <div class="repeater" data-repeater-list="group-d">
-              <% if (resume.projects.length>0) { %> <% for( let index = 0; index
-              < resume.projects.length; index++ ) { %>
-              <div data-repeater-item>
-                <div class="cv-form-row cv-form-row-experience">
-                  <div class="cols-3">
-                    <div class="form-elem">
-                      <label for="" class="form-label">Project Name</label>
-                      <input
-                        name="proj_title"
-                        type="text"
-                        class="form-control proj_title"
-                        id=""
-                        onkeyup="generateCV()"
-                        value="<%= resume.projects[index].proj_title !== '' ? resume.projects[index].proj_title  : '' %>"
-                      />
-                      <span class="form-text"></span>
-                    </div>
-                    <div class="form-elem">
-                      <label for="" class="form-label">Project link</label>
-                      <input
-                        name="proj_link"
-                        type="text"
-                        class="form-control proj_link"
-                        id=""
-                        onkeyup="generateCV()"
-                        value="<%= resume.projects[index].proj_link !== '' ? resume.projects[index].proj_link  : '' %>"
-                      />
-                      <span class="form-text"></span>
-                    </div>
-                    <div class="form-elem">
-                      <label for="" class="form-label">Description</label>
-                      <input
-                        name="proj_description"
-                        type="text"
-                        class="form-control proj_description"
-                        id=""
-                        onkeyup="generateCV()"
-                        value="<%= resume.projects[index].proj_description !== '' ? resume.projects[index].proj_description  : '' %>"
-                      />
-                      <span class="form-text"></span>
-                    </div>
-                  </div>
-                  <button
-                    data-repeater-delete
-                    type="button"
-                    class="repeater-remove-btn"
-                  >
-                    -
-                  </button>
+  <div class="row-separator repeater">
+    <div class="repeater" data-repeater-list="group-d">
+      <% if (resume.projects && resume.projects.length > 0) { %>
+        <% for (let index = 0; index < resume.projects.length; index++) { %>
+          <div data-repeater-item>
+            <div class="cv-form-row cv-form-row-experience">
+              <div class="cols-3">
+                <div class="form-elem">
+                  <label for="" class="form-label">Project Name</label>
+                  <input
+                    name="proj_title"
+                    type="text"
+                    class="form-control proj_title"
+                    id=""
+                    onkeyup="generateCV()"
+                    value="<%= resume.projects[index].proj_title !== '' ? resume.projects[index].proj_title : '' %>"
+                  />
+                  <span class="form-text"></span>
+                </div>
+                <div class="form-elem">
+                  <label for="" class="form-label">Project Link</label>
+                  <input
+                    name="proj_link"
+                    type="text"
+                    class="form-control proj_link"
+                    id=""
+                    onkeyup="generateCV()"
+                    value="<%= resume.projects[index].proj_link !== '' ? resume.projects[index].proj_link : '' %>"
+                  />
+                  <span class="form-text"></span>
+                </div>
+                <div class="form-elem">
+                  <label for="" class="form-label">Description</label>
+                  <input
+                    name="proj_description"
+                    type="text"
+                    class="form-control proj_description"
+                    id=""
+                    onkeyup="generateCV()"
+                    value="<%= resume.projects[index].proj_description !== '' ? resume.projects[index].proj_description : '' %>"
+                  />
+                  <span class="form-text"></span>
                 </div>
               </div>
-              <% } %> <% } %>
+              <button
+                data-repeater-delete
+                type="button"
+                class="repeater-remove-btn"
+              >
+                -
+              </button>
+            </div>
+          </div>
+        <% } %>
+      <% } else { %>
+        <!-- Default input field when there are no projects -->
+        <div data-repeater-item>
+          <div class="cv-form-row cv-form-row-experience">
+            <div class="cols-3">
+              <div class="form-elem">
+                <label for="" class="form-label">Project Name</label>
+                <input
+                  name="proj_title"
+                  type="text"
+                  class="form-control proj_title"
+                  id=""
+                  onkeyup="generateCV()"
+                  placeholder="Enter project name"
+                />
+                <span class="form-text"></span>
+              </div>
+              <div class="form-elem">
+                <label for="" class="form-label">Project Link</label>
+                <input
+                  name="proj_link"
+                  type="text"
+                  class="form-control proj_link"
+                  id=""
+                  onkeyup="generateCV()"
+                  placeholder="Enter project link"
+                />
+                <span class="form-text"></span>
+              </div>
+              <div class="form-elem">
+                <label for="" class="form-label">Description</label>
+                <input
+                  name="proj_description"
+                  type="text"
+                  class="form-control proj_description"
+                  id=""
+                  onkeyup="generateCV()"
+                  placeholder="Enter project description"
+                />
+                <span class="form-text"></span>
+              </div>
             </div>
             <button
+              data-repeater-delete
               type="button"
-              data-repeater-create
-              value="Add"
-              class="repeater-add-btn"
+              class="repeater-remove-btn"
             >
-              +
+              -
             </button>
           </div>
         </div>
+      <% } %>
+    </div>
+    <button
+      type="button"
+      data-repeater-create
+      value="Add"
+      class="repeater-add-btn"
+    >
+      +
+    </button>
+  </div>
+</div>
 
         <div class="cv-form-blk skills">
           <div class="cv-form-row-title">
