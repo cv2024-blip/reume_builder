@@ -680,7 +680,6 @@ nav .container {
     text-align: justify;
     font-weight: 100;
     margin-bottom: 0.2rem;
-    opacity: 0.8;
   }
   .preview-cnt-r .preview-blk-title {
     color: var(--clr-dark);
