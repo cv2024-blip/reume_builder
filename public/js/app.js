@@ -518,7 +518,7 @@ summary_btn.addEventListener("click", async (event) => {
     
 
     try{
-      let assistantMessage = " make a professional resume summary." // Assistant Message
+      let assistantMessage = "Summarise." // Assistant Message
       summaryElem.value = "...";
       const response = await fetch('api/inference', {
         method: 'POST',
@@ -544,7 +544,7 @@ summary_btn.addEventListener("click", async (event) => {
 
     try{
       input_text = projTitle = user_data.projects[0].proj_title
-      let assistantMessage =  "make a professional description for this project." // Assistant Message
+      let assistantMessage =  "Descripe." // Assistant Message
       const response = await fetch('api/inference', {
         method: 'POST',
         headers: {
