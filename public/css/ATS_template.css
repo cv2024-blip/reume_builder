@@ -678,7 +678,6 @@ nav .container {
   .preview-blk-list .preview-item {
     font-size: 13.5px;
     text-align: justify;
-    font-weight: 100;
     margin-bottom: 0.2rem;
   }
   .preview-cnt-r .preview-blk-title {
@@ -739,7 +738,6 @@ nav .container {
   .experiences-items.preview-blk-list .preview-item span:nth-child(6) {
     font-size: 13.5px;
     display: block;
-    opacity: 0.8;
     margin-top: 1rem;
   }
   #summary_dsp{
