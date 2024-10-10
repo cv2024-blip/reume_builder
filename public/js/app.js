@@ -476,25 +476,25 @@ summary_btn.addEventListener("click", async (event) => {
         input_text += `, skilled at ${user_data.skills[0].skill}.`;
       }
       
-      // // Achievements
-      // if (user_data.achievements && user_data.achievements[0]?.achieve_title) {
-      //   input_text += `, also have achieved ${user_data.achievements[0].achieve_title}`;
-      // }
+      // Achievements
+      if (user_data.achievements && user_data.achievements[0]?.achieve_title) {
+        input_text += `, also have achieved ${user_data.achievements[0].achieve_title}`;
+      }
       
-      // // Experience
-      // if (user_data.experiences && user_data.experiences[0]?.exp_title) {
-      //   input_text += `, and also ${user_data.experiences[0].exp_title}`;
-      // }
+      // Experience
+      if (user_data.experiences && user_data.experiences[0]?.exp_title) {
+        input_text += `, and also ${user_data.experiences[0].exp_title}`;
+      }
       
-      // // Projects
-      // if (user_data.projects && user_data.projects[0]?.proj_title) {
-      //   input_text += `, have done these projects: ${user_data.projects[0].proj_title}.`;
-      // }
+      // Projects
+      if (user_data.projects && user_data.projects[0]?.proj_title) {
+        input_text += `, have done these projects: ${user_data.projects[0].proj_title}.`;
+      }
       
-      // // Projects Description (Assuming you want to use this)
-      // if (user_data.projects && user_data.projects[0]?.proj_description) {
-      //   input_text += ` Description: ${user_data.projects[0].proj_description}.`;
-      // }
+      // Projects Description (Assuming you want to use this)
+      if (user_data.projects && user_data.projects[0]?.proj_description) {
+        input_text += ` Description: ${user_data.projects[0].proj_description}.`;
+      }
       
   
       console.log(input_text);
@@ -518,7 +518,7 @@ summary_btn.addEventListener("click", async (event) => {
     
 
     try{
-      let assistantMessage = " make a professional resume summary" // Assistant Message
+      let assistantMessage = " make a professional resume summary." // Assistant Message
       summaryElem.value = "...";
       const response = await fetch('api/inference', {
         method: 'POST',
@@ -544,7 +544,7 @@ summary_btn.addEventListener("click", async (event) => {
 
     try{
       input_text = projTitle = user_data.projects[0].proj_title
-      let assistantMessage =  "make a description for this project" // Assistant Message
+      let assistantMessage =  "make a professional description for this project." // Assistant Message
       const response = await fetch('api/inference', {
         method: 'POST',
         headers: {
