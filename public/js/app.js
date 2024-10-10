@@ -491,10 +491,10 @@ summary_btn.addEventListener("click", async (event) => {
         input_text += `, have done these projects: ${user_data.projects[0].proj_title}.`;
       }
       
-      // Projects Description (Assuming you want to use this)
-      if (user_data.projects && user_data.projects[0]?.proj_description) {
-        input_text += ` Description: ${user_data.projects[0].proj_description}.`;
-      }
+      // // Projects Description (Assuming you want to use this)
+      // if (user_data.projects && user_data.projects[0]?.proj_description) {
+      //   input_text += ` Description: ${user_data.projects[0].proj_description}.`;
+      // }
       
   
       console.log(input_text);
