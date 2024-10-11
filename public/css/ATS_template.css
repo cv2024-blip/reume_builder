@@ -636,10 +636,10 @@ nav .container {
     display: inline;
     list-style-type: disc;
   }
-  .preview-item:nth-child(3) .preview-item-val{
-    font-size: 13.5px;
-    font-weight: 300;
+  .preview-item .preview-item-val{
+    /* font-weight: 400; */
     text-align: justify;
+    opacity: 1;
   }
   .preview-item-name {
     font-size: 2.4rem;
@@ -661,7 +661,7 @@ nav .container {
     margin-right: 0.5rem ;
     font-weight: 600;
   }
-
+  
   .preview-blk {
     padding: 1rem 0;
     margin-bottom: 1rem;
@@ -679,6 +679,7 @@ nav .container {
     font-size: 13.5px;
     text-align: justify;
     margin-bottom: 0.2rem;
+    opacity: 1;
   }
   .preview-cnt-r .preview-blk-title {
     color: var(--clr-dark);
@@ -738,20 +739,20 @@ nav .container {
   .experiences-items.preview-blk-list .preview-item span:nth-child(6) {
     font-size: 13.5px;
     display: block;
+    opacity: 1;
     margin-top: 1rem;
   }
   #summary_dsp{
     font-size: 13.5px;
   }
-  .projects-items.preview-blk-list .preview-item span {
+  .projects-items .preview-item span {
     display: block;
   }
-  .projects-items.preview-blk-list .preview-item span:nth-child(1) {
+  .projects-items .preview-item .preview-item-val:nth-child(1),
+  .projects-items .preview-item .preview-item-val:nth-child(2) {
     font-weight: 600;
   }
-  .projects-items.preview-blk-list .preview-item span:nth-child(2) {
-    font-weight: 600;
-  }
+
 
 
   .print-btn-sc .container{
