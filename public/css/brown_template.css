@@ -2,7 +2,6 @@
 /* latte color value: #a08d63
 
 */
-
 :root {
   --clr-blue: #1a91f0;
   --clr-blue-mid: #1170cd;
@@ -667,19 +666,22 @@ nav .container {
   .preview-cnt-r .preview-blk-list .preview-item {
     margin-top: 1.8rem;
   }
-  
+  .preview-item .preview-item-val{
+    text-align: justify;
+    opacity: 1;
+  }
   .achievements-items.preview-blk-list .preview-item span:first-child,
   .educations-items.preview-blk-list .preview-item span:first-child,
   .experiences-items.preview-blk-list .preview-item span:first-child {
     display: block;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 1rem;
     background-color: rgba(0, 0, 0, 0.03);
   }
   
   .educations-items.preview-blk-list .preview-item span:nth-child(2),
   .experiences-items.preview-blk-list .preview-item span:nth-child(2) {
-    font-weight: 600;
+    font-weight: 700;
     margin-right: 1rem;
   }
   
@@ -708,15 +710,16 @@ nav .container {
     opacity: 0.8;
     margin-top: 1rem;
   }
-  .projects-items.preview-blk-list .preview-item span {
+  .projects-items .preview-item span {
     display: block;
   }
-  .projects-items.preview-blk-list .preview-item span:nth-child(1) {
+  .projects-items .preview-item .preview-item-val:nth-child(1) {
     font-weight: 600;
   }
-  .projects-items.preview-blk-list .preview-item span:nth-child(2) {
+  .projects-items .preview-item .preview-item-val:nth-child(2) {
     font-weight: 600;
   }
+
   .print-btn-sc .container{
     display: flex;
     justify-content: center;
