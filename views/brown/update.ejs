@@ -399,14 +399,13 @@
                       <button data-repeater-delete type="button" class="repeater-remove-btn">-</button>
                     </div>
                   </div>
-                  <% } %><% } %>
+                  <% } %>
                     <% } else { %>
                       <div data-repeater-item>
                         <div class="cv-form-row cv-form-row-languages">
                           <div class="form-elem">
                             <label for="" class="form-label">Language</label>
                             <input name="language" type="text" class="form-control language" id=""
-                              value="<%= resume.languages[index].language !== '' ? resume.languages[index].language  : '' %>"
                               onkeyup="generateCV()">
                             <span class="form-text"></span>
                           </div>
