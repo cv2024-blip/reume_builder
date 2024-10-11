@@ -166,7 +166,6 @@
                     id=""
                     onkeyup="generateCV()"
                     placeholder="some achievement"
-                    value=""
                   />
                   <span class="form-text"></span>
                 </div>
@@ -550,35 +549,48 @@
     </div>
 
     
+
     <div class="cv-form-blk languages">
       <div class="cv-form-row-title">
-          <h3>Languages</h3>
+        <h3>Languages</h3>
       </div>
 
       <div class="row-separator repeater">
-          <div class="repeater" data-repeater-list="group-f">
-            <% if (resume.languages.length>0) { %> <% for( let index = 0; index <
-              resume.languages.length; index++ ) { %>
+        <div class="repeater" data-repeater-list="group-f">
+          <% if (resume.languages.length>0) { %> <% for( let index=0; index < resume.languages.length; index++ ) {
+              %>
               <div data-repeater-item>
-                  <div class="cv-form-row cv-form-row-languages">
+                <div class="cv-form-row cv-form-row-languages">
+                  <div class="form-elem">
+                    <label for="" class="form-label">Language</label>
+                    <input name="language" type="text" class="form-control language" id=""
+                      value="<%= resume.languages[index].language !== '' ? resume.languages[index].language  : '' %>"
+                      onkeyup="generateCV()">
+                    <span class="form-text"></span>
+                  </div>
+
+                  <button data-repeater-delete type="button" class="repeater-remove-btn">-</button>
+                </div>
+              </div>
+              <% } %>
+                <% } else { %>
+                  <div data-repeater-item>
+                    <div class="cv-form-row cv-form-row-languages">
                       <div class="form-elem">
-                          <label for="" class="form-label">Language</label>
-                          <input name="language" type="text" class="form-control language" id=""
-                          value="<%= resume.languages[index].language !== '' ? resume.languages[index].language  : '' %>"
-                              onkeyup="generateCV()">
-                          <span class="form-text"></span>
+                        <label for="" class="form-label">Language</label>
+                        <input name="language" type="text" class="form-control language" id=""
+                          onkeyup="generateCV()">
+                        <span class="form-text"></span>
                       </div>
 
-                      <button data-repeater-delete type="button"
-                          class="repeater-remove-btn">-</button>
+                      <button data-repeater-delete type="button" class="repeater-remove-btn">-</button>
+                    </div>
                   </div>
-              </div>
-              <% } %> <% } %> 
-          </div>
-          <button type="button" data-repeater-create value="Add" class="repeater-add-btn">+</button>
-      </div>
-  </div>
+                <% } %>
 
-  </div>
+        </div>
+        <button type="button" data-repeater-create value="Add" class="repeater-add-btn">+</button>
+      </div>
+    </div>
   </form>
 </div>
