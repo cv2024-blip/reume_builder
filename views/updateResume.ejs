@@ -557,11 +557,14 @@
 
       <div class="row-separator repeater">
           <div class="repeater" data-repeater-list="group-f">
+            <% if (resume.languages.length>0) { %> <% for( let index = 0; index <
+              resume.languages.length; index++ ) { %>
               <div data-repeater-item>
                   <div class="cv-form-row cv-form-row-languages">
                       <div class="form-elem">
                           <label for="" class="form-label">Language</label>
                           <input name="language" type="text" class="form-control language" id=""
+                          value="<%= resume.languages[index].language !== '' ? resume.languages[index].language  : '' %>"
                               onkeyup="generateCV()">
                           <span class="form-text"></span>
                       </div>
@@ -570,9 +573,12 @@
                           class="repeater-remove-btn">-</button>
                   </div>
               </div>
+              <% } %> <% } %> 
           </div>
           <button type="button" data-repeater-create value="Add" class="repeater-add-btn">+</button>
       </div>
+  </div>
+
   </div>
   </form>
 </div>
