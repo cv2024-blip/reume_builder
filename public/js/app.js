@@ -563,7 +563,7 @@ summary_btn.addEventListener("click", async (event) => {
         input_text = projTitle = user_data.projects[i].proj_title + "."
         let projDes = user_data["projectDes"][i]
         projDes.value = "..."
-        let assistantMessage =  "make a describtion for the project in a single short paragraph." // Assistant Message
+        let assistantMessage =  "make a first person describtion for the project in a single 100 words maximum paragraph." // Assistant Message
         const response = await fetch('api/inference', {
           method: 'POST',
           headers: {
