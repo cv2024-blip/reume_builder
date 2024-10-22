@@ -616,6 +616,7 @@ text-align: center;
 
 /* footer */
 .footer {
+  text-align: center;
   padding: 3rem 0;
   border-top: #fff solid 2px;
 }
@@ -623,6 +624,7 @@ text-align: center;
   display: flex;
   justify-content: space-between;
   color: var(--clr-grey);
+  align-items: center;
 }
 .footer-content p {
   color: var(--clr-grey);
