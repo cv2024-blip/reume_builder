@@ -266,9 +266,6 @@ nav .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0rem 1.6rem;
-  justify-content: center; /* Center the container content */
-  flex-direction: column;  /* Ensure vertical layout */
-  align-items: center;     /* Align items to center horizontally */
 }
 /* bars button */
 .bars {
