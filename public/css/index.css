@@ -622,24 +622,28 @@ text-align: center;
 }
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center the content horizontally */
+  flex-direction: column;  /* Stack the content vertically */
+  align-items: center;     /* Align items to the center horizontally */
   color: var(--clr-grey);
-  align-items: center;
 }
 .footer-content p {
   color: var(--clr-grey);
   font-size: 2rem;
+  text-align: center; /* Ensure paragraph text is centered */
 }
 .footer .copyright{
   color: var(--clr-grey);
   margin-top: 1.5rem;
+  text-align: center; /* Ensure copyright text is centered */
 }
 .footer-content p span {
   display: block;
   color: var(--clr-white);
-  text-align: left;
+  text-align: center; /* Ensure span text is centered */
 
 }
+
 
 /* media queries */
 
