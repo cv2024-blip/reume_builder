@@ -776,8 +776,8 @@ nav .container {
 .footer-content {
   display: flex;
   justify-content: center; /* Center the content horizontally */
-  flex-direction: column;  /* Stack the content vertically */
-  align-items: center;     /* Align items to the center horizontally */
+  flex-direction: column;  /* Stack content vertically */
+  align-items: center;     /* Center items horizontally */
   color: var(--clr-grey);
 }
 .footer-content p {
