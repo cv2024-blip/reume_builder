@@ -254,9 +254,11 @@ a {
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.6rem;
+  max-width: 100%; /* Ensure full width */
+  display: flex;
+  justify-content: center; /* Center the container content */
+  flex-direction: column;  /* Ensure vertical layout */
+  align-items: center;     /* Align items to center horizontally */
 }
 
 /* bars button */
